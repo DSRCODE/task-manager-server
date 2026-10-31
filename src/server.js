@@ -10,10 +10,8 @@ let server;
 
 const startServer = async () => {
   try {
-    // Connect MongoDB first
     await connectDatabase();
 
-    // Start HTTP server
     server = http.createServer(app);
 
     server.listen(env.PORT, () => {
@@ -31,7 +29,6 @@ const startServer = async () => {
   }
 };
 
-// Graceful shutdown
 const shutdown = async (signal) => {
   console.log(`\n${signal} received. Shutting down...`);
 
